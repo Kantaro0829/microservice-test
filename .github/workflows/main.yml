@@ -45,6 +45,11 @@ jobs:
           pip install flake8
           pip install autopep8
           pip install pytest
+          echo #checking and formatting python file#
+          autopep8 --in-place ./service1/app.py
+          autopep8 --in-place ./service2/app.py
+          flake8 ./service1/app.py
+          flake8 ./service2/app.py
           
           
           
