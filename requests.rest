@@ -1,0 +1,4 @@
+GET http://localhost:80/service1
+###
+
+GET http://localhost:80/service2

@@ -1,0 +1,51 @@
+version: '3.0'
+
+services:
+
+  nginx:
+    build: ./nginx
+    image: 2190431/test-microk8s-nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - service1
+      - service2
+    networks:
+      - nginx_network
+  
+  service1:
+    build: ./service1
+    image: 2190431/test-microk8s-service1
+    restart: always
+    tty: true
+    ports:
+      - 5000:5000
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - "./service1:/projects"
+    command: python /projects/app.py
+    networks:
+      - nginx_network
+  
+  service2:
+    build: ./service2
+    image: 2190431/test-microk8s-service2
+    restart: always
+    tty: true
+    ports:
+      - 5001:5001
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - "./service2:/projects"
+    command: python /projects/app.py
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
