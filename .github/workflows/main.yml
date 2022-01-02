@@ -41,6 +41,10 @@ jobs:
           docker-compose -v
           echo current directry
           ls
+          echo install library
+          pip install flake8
+          pip install autopep8
+          pip install pytest
           
           
           
