@@ -51,6 +51,10 @@ jobs:
           flake8 ./service1/app.py
           flake8 ./service2/app.py
           
+      - name: docker login
+        run: |
+          echo login to docker hub
+          
           
           
           
