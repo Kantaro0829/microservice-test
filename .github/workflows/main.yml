@@ -62,7 +62,6 @@ jobs:
           docker-compose build service1
           docker-compose build service2
           docker-compose build nginx
-          
-          
-          
+          echo show built images
+          docker images
           
