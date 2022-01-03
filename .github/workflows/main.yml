@@ -54,7 +54,7 @@ jobs:
       - name: docker login
         run: |
           echo login to docker hub
-          docker login -u ${secrets.USERNAME} -p ${secrets.PASSWORD}
+          docker login -u ${{secrets.USERNAME}} -p ${{secrets.PASSWORD}}
           
           
           
