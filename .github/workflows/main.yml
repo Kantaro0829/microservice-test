@@ -55,6 +55,13 @@ jobs:
         run: |
           echo login to docker hub
           docker login -u ${{ secrets.USER_NAME }} -p ${{ secrets.PASSWORD }}
+      
+      - name: docker-compose build image
+        run: |
+          echo build each images
+          docker-compose build service1
+          docker-compose build service2
+          docker-compose build nginx
           
           
           
