@@ -64,4 +64,11 @@ jobs:
           docker-compose build nginx
           echo show built images
           docker images
+      
+      - name: push images to the dockerHub
+        run: |
+          echo push to dockerhub
+          docker push ${{ secrets.SERVICE1_REPO}}:latest
+          docker push ${{ secrets.SERVICE2_REPO}}:latest
+          docker push ${{ secrets.NGINX_REPO}}:latest
           
