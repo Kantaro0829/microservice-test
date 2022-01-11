@@ -1,4 +1,8 @@
 GET http://localhost:80/service1
+Host: echo-server
 ###
 
 GET http://localhost:80/service2
+Host: echo-server
+
+###
