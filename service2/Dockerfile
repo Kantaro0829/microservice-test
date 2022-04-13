@@ -15,7 +15,7 @@ WORKDIR $project_dir
 RUN pip install --upgrade pip
 RUN pip install --user -r requirements.txt
 
-EXPOSE 5001
+EXPOSE 80
 
 #コマンド実行
 CMD ["python", "/projects/app.py"]
