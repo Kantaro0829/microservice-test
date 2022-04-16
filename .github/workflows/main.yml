@@ -65,16 +65,15 @@ jobs:
           docker build -t test-microk8s-service1 ./service1
           docker build -t test-microk8s-service2 ./service2
           
-          docker tag test-microk8s-service1 2190431/test-microk8s-service1:${{ github.run_attempt }}
-          docker tag test-microk8s-service2 2190431/test-microk8s-service2:${{ github.run_attempt }}
+          docker tag test-microk8s-service1 2190431/test-microk8s-service1:${{ github.run_number }}
+          docker tag test-microk8s-service2 2190431/test-microk8s-service2:${{ github.run_number }}
           echo show built images
           docker images
       
       - name: push images to the dockerHub
         run: |
-          echo "VERSION=${GITHUB_REF#refs/tags/}" >> "$GITHUB_ENV"
           echo push to dockerhub
-          docker push ${{ secrets.SERVICE1_REPO}}:${{ github.run_attempt }}
-          docker push ${{ secrets.SERVICE2_REPO}}:${{ github.run_attempt }}
+          docker push ${{ secrets.SERVICE1_REPO}}:${{ github.run_number }}
+          docker push ${{ secrets.SERVICE2_REPO}}:${{ github.run_number }}
 
           
