@@ -68,7 +68,9 @@ jobs:
       - name: push images to the dockerHub
         run: |
           echo push to dockerhub
-          docker push ${{ secrets.SERVICE1_REPO}}:`date '+%Y/%m/%d%r'`
-          docker push ${{ secrets.SERVICE2_REPO}}:`date '+%Y/%m/%d%r'`
+          secrets.SERVICE1.VERSION = 1
+          echo ${{ secrets.SERVICE1_VERSION }}
+          docker push ${{ secrets.SERVICE1_REPO}}:latest
+          docker push ${{ secrets.SERVICE2_REPO}}:latest
 
           
