@@ -11,7 +11,7 @@ app.config['JSON_AS_ASCII'] = False
 @cross_origin(supports_credentials=True)
 def hello_world():
 
-    return jsonify({"status": 200, "message": "service2-version5"})
+    return jsonify({"status": 200, "message": "service2-version34"})
 
 
 if __name__ == '__main__':
