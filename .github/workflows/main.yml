@@ -68,6 +68,7 @@ jobs:
       - name: push images to the dockerHub
         run: |
           echo push to dockerhub
+          VAR=date '+%Y/%m/%d'
           docker push ${{ secrets.SERVICE1_REPO}}:latest
           docker push ${{ secrets.SERVICE2_REPO}}:latest
           docker push ${{ secrets.NGINX_REPO}}:latest
