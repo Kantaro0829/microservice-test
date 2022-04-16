@@ -10,7 +10,11 @@ app.config['JSON_AS_ASCII'] = False
 @app.route('/')
 @cross_origin(supports_credentials=True)
 def hello_world():
+<<<<<<< HEAD
     return jsonify({"status": 200, "message": "service2-version3"})
+=======
+    return jsonify({"status": 200, "message": "service2-version2"})
+>>>>>>> b078b708576315ab0112ea50be8f6d7d01fd0148
 
 
 if __name__ == '__main__':
