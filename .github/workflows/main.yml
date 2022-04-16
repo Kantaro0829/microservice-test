@@ -56,12 +56,17 @@ jobs:
           echo login to docker hub
           docker login -u ${{ secrets.USER_NAME }} -p ${{ secrets.PASSWORD }}
       
+      # docker-compose build service1
+      # docker-compose build service2
+      # docker-compose build nginx
       - name: docker-compose build image
         run: |
           echo build each images
-          docker-compose build service1
-          docker-compose build service2
-          docker-compose build nginx
+          docker build -t test-microk8s-service1 ./service1
+          docker build -t test-microk8s-service2 ./service2
+          
+          docker tag test-microk8s-service1 2190431/test-microk8s-service1:${{ github.run_attempt }}
+          docker tag test-microk8s-service2 2190431/test-microk8s-service2:${{ github.run_attempt }}
           echo show built images
           docker images
       
