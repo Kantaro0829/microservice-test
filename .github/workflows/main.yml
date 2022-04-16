@@ -67,6 +67,7 @@ jobs:
       
       - name: push images to the dockerHub
         run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/}" >> "$GITHUB_ENV"
           echo push to dockerhub
           docker push ${{ secrets.SERVICE1_REPO}}:latest
           docker push ${{ secrets.SERVICE2_REPO}}:latest
