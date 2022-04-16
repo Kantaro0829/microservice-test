@@ -69,6 +69,6 @@ jobs:
         run: |
           echo push to dockerhub
           VAR="date '+%Y/%m/%d%r'"
-          docker push ${{ secrets.SERVICE1_REPO}}:$VAR
-          docker push ${{ secrets.SERVICE2_REPO}}:$VAR
+          docker push ${{ secrets.SERVICE1_REPO}}:${{ VAR }}
+          docker push ${{ secrets.SERVICE2_REPO}}:${{ VAR }}
           
